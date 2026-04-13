@@ -215,15 +215,22 @@
     }
 
     .practice-panel {
-      border: 1px solid var(--border);
+      border: 1px solid #93c5fd;
       border-radius: var(--radius);
-      background: #f8fafc;
-      padding: 18px;
-      margin: 16px 0 20px;
+      background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.12);
+      padding: 22px;
+      margin: 20px 0 24px;
     }
 
     .practice-panel h2 {
       margin-top: 0;
+      color: var(--accent-dark);
+    }
+
+    .practice-panel .card-title {
+      color: var(--accent-dark);
+      margin-bottom: 10px;
     }
 
     .panel-row {
@@ -237,17 +244,42 @@
     .panel-row label {
       min-width: 120px;
       font-weight: 600;
-      color: var(--text-muted);
+      color: var(--accent-dark);
     }
 
-    select, button {
+    .practice-panel select,
+    .practice-panel button {
       font: inherit;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 14px;
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 14px;
+      padding: 12px 14px;
       background: white;
       color: var(--text);
       cursor: pointer;
+    }
+
+    .practice-panel select {
+      min-width: 220px;
+      flex: 1;
+    }
+
+    .practice-panel button {
+      min-height: 44px;
+    }
+
+    .practice-panel button:hover {
+      transform: translateY(-1px);
+      background: #dbeafe;
+    }
+
+    .practice-panel #quiz-next {
+      background: var(--accent);
+      color: white;
+      border-color: transparent;
+    }
+
+    .practice-panel #quiz-next:hover {
+      background: var(--accent-dark);
     }
 
     button {
@@ -596,12 +628,24 @@
         <div class="task-card">
           <div class="card-title">Скелет монолога</div>
           <ol style="margin: 0 0 0 18px;">
-            <li><strong>Вступление:</strong> представь тему, укажи, о чём будешь говорить.</li>
-            <li><strong>Пункт 1:</strong> основной факт или идея, начало развития темы.</li>
-            <li><strong>Пункт 2:</strong> добавь объяснение, пример или причину.</li>
-            <li><strong>Пункт 3:</strong> ещё одно утверждение или сравнение для глубины.</li>
-            <li><strong>Пункт 4:</strong> заключительный факт, личное отношение или итог.</li>
-            <li><strong>Заключение:</strong> подведи итог и скажи финальную фразу.</li>
+            <li><strong>Вступление:</strong> представь тему, укажи, о чём будешь говорить.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"Today I’d like to tell you about ..."</em></div>
+            </li>
+            <li><strong>Пункт 1:</strong> основной факт или идея, начало развития темы.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"First of all, I’d like to say that ..."</em></div>
+            </li>
+            <li><strong>Пункт 2:</strong> добавь объяснение, пример или причину.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"For example, ..."</em> или <em>"Because ..."</em></div>
+            </li>
+            <li><strong>Пункт 3:</strong> ещё одно утверждение или сравнение для глубины.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"Besides, ..."</em> или <em>"On the one hand ... but on the other hand ..."</em></div>
+            </li>
+            <li><strong>Пункт 4:</strong> заключительный факт, личное отношение или итог.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"As for me, ..."</em> или <em>"I personally believe that ..."</em></div>
+            </li>
+            <li><strong>Заключение:</strong> подведи итог и скажи финальную фразу.
+              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"To sum up, ..."</em> или <em>"That’s all I wanted to say about ..."</em></div>
+            </li>
           </ol>
           <p class="tip" style="margin-top: 10px;">Во время подготовки быстро заполни этот каркас мысленно или письменно.</p>
         </div>
