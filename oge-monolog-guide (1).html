@@ -629,25 +629,31 @@
           <div class="card-title">Скелет монолога</div>
           <ol style="margin: 0 0 0 18px;">
             <li><strong>Вступление:</strong> представь тему, укажи, о чём будешь говорить.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"Today I’d like to tell you about ..."</em></div>
+              <div class="skeleton-example">Today I’d like to tell you about ...</div>
             </li>
             <li><strong>Пункт 1:</strong> основной факт или идея, начало развития темы.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"First of all, I’d like to say that ..."</em></div>
+              <div class="skeleton-example">First of all, I’d like to say that ...</div>
             </li>
             <li><strong>Пункт 2:</strong> добавь объяснение, пример или причину.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"For example, ..."</em> или <em>"Because ..."</em></div>
+              <div class="skeleton-example">For example, ... / Because ...</div>
             </li>
             <li><strong>Пункт 3:</strong> ещё одно утверждение или сравнение для глубины.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"Besides, ..."</em> или <em>"On the one hand ... but on the other hand ..."</em></div>
+              <div class="skeleton-example">Besides, ... / On the one hand ... but on the other hand ...</div>
             </li>
             <li><strong>Пункт 4:</strong> заключительный факт, личное отношение или итог.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"As for me, ..."</em> или <em>"I personally believe that ..."</em></div>
+              <div class="skeleton-example">As for me, ... / I personally believe that ...</div>
             </li>
             <li><strong>Заключение:</strong> подведи итог и скажи финальную фразу.
-              <div style="margin-top: 6px; color: var(--text-muted);">Например: <em>"To sum up, ..."</em> или <em>"That’s all I wanted to say about ..."</em></div>
+              <div class="skeleton-example">To sum up, ... / That’s all I wanted to say about ...</div>
             </li>
           </ol>
           <p class="tip" style="margin-top: 10px;">Во время подготовки быстро заполни этот каркас мысленно или письменно.</p>
+        </div>
+
+        <div class="task-card spoiler-card">
+          <div class="card-title">Образец ответа</div>
+          <button id="toggle-sample" type="button" class="spoiler-toggle">Показать образец ответа</button>
+          <div id="sample-answer" class="spoiler-content"></div>
         </div>
 
         <div class="panel-row timer-row">
@@ -1032,7 +1038,10 @@
           'how the Internet helps you with your studies;',
           'what dangers the Internet may have for teenagers;',
           'what your attitude to the Internet is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Now I’m going to give a talk about</span> the Internet. Nowadays the Internet has become a part of our everyday life. Teenagers use it for studying, entertainment and communication. <span class="template">As for me</span>, I usually use the Internet to do my homework, watch educational videos and communicate with my friends in social networks. The Internet helps me a lot with my studies because I can quickly find information for my school projects. <span class="template">On the other hand</span>, the Internet can be dangerous because there are some dishonest people and a lot of useless or even harmful content. <span class="template">That’s why</span> parents and teachers should explain how to use it safely. <span class="template">To sum up</span>, I think the Internet is a very useful tool if we use it wisely and do not spend too much time online. <span class="template">That’s all I wanted to say about</span> the Internet.</p>
+        `
       },
       {
         label: 'Sport',
@@ -1042,7 +1051,10 @@
           'what sports clubs or teams there are in your school or town;',
           'what you personally do to keep fit;',
           'what your attitude to doing sports activities is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I’m going to give a talk about</span> sport. <span class="template">First of all, I’d like to say that</span> sport is very important for modern teenagers because it helps them keep fit and be healthy. Many young people do sports to look good and feel more confident. <span class="template">As for me</span>, I prefer team sports such as football and basketball because I like playing with my friends. We usually play football after school or at the weekend. <span class="template">Besides</span>, I enjoy watching sports competitions on TV and supporting my favourite teams. Of course, doing sport regularly is not always easy because it takes time and energy, but it is worth it. <span class="template">In conclusion, I’d like to say that</span> sport is a good way to relax, make new friends and become stronger. <span class="template">That’s all I wanted to say about</span> sport.</p>
+        `
       },
       {
         label: 'Books and reading',
@@ -1072,7 +1084,10 @@
           'how long you and your best friend have known each other;',
           'what you enjoy doing together;',
           'what your attitude to friendship is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Now I’m going to give a talk about</span> my best friend. <span class="template">In my opinion</span>, everybody needs friends because they make our life more interesting and help us in difficult situations. My best friend’s name is … (you can say any name). We have known each other for many years because we study in the same class. My friend is kind, honest and reliable, and we have a lot of things in common. <span class="template">For example</span>, we both like playing computer games and going to the cinema. We often do homework together and prepare for tests. When I have a problem, I can always talk to my friend and get good advice. <span class="template">To sum up</span>, I think real friendship is very important for teenagers. <span class="template">That’s all I wanted to say about</span> my best friend.</p>
+        `
       },
       {
         label: 'My city / town',
@@ -1082,7 +1097,10 @@
           'what there is in your city or town (schools, parks, places of interest, etc.);',
           'what you like and dislike about your city or town;',
           'what your attitude to your hometown is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I’m going to give a talk about</span> the place where I live. My city (or town) is situated in the western part of our country. It is not very big, but it is quite comfortable to live in. There are several schools, a few parks, some cinemas and different shops here. The thing that I like most about my city is that there are many green areas where you can walk and relax. <span class="template">Besides</span>, we have some places of interest, <span class="template">for example</span> an old church and a local history museum. Of course, there are some problems too, such as traffic jams and environmental pollution. In the future I would like my city to become cleaner and have more modern sports centres. <span class="template">To sum up</span>, I am proud of my hometown, although it is not perfect. <span class="template">That’s all I wanted to say about</span> my city.</p>
+        `
       },
       {
         label: 'My hobbies',
@@ -1132,7 +1150,10 @@
           'where you would like to study or work;',
           'what skills or qualities you need for your plans;',
           'what your attitude to the future is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Today I’d like to tell you about</span> my future plans. <span class="template">First of all, I’d like to say that</span> I want to study at university after school because I would like to get a good education and choose a career I enjoy. I am thinking about studying English and psychology because I like communicating with people and understanding their ideas. <span class="template">For example</span>, I want to join a student club where I can practice languages and meet new friends. <span class="template">As for me</span>, I think it is important to work hard now so that I can achieve my goals later. <span class="template">To sum up</span>, I am sure that planning my future carefully will help me feel confident and ready to take the next steps. <span class="template">That’s all I wanted to say about</span> my future plans.</p>
+        `
       }
     ];
 
@@ -1156,6 +1177,36 @@
         question: 'Чем лучше связать второй пункт плана?',
         options: ['Besides,', 'That’s all I wanted to say about', 'I am sure that', 'Now I’m going to give a talk about'],
         answer: 'Besides,'
+      },
+      {
+        question: 'Как начать вступление, если ты рассказываешь о своих планах?',
+        options: ['In my opinion,', 'Now I’m going to give a talk about', 'As for me,', 'That’s why,'],
+        answer: 'Now I’m going to give a talk about'
+      },
+      {
+        question: 'Какая фраза подходит для выражения своего мнения?',
+        options: ['To sum up,', 'I personally believe that,', 'First of all,', 'For example,'],
+        answer: 'I personally believe that,'
+      },
+      {
+        question: 'Что лучше сказать перед тем, как перечислить причины?',
+        options: ['On the other hand,', 'That’s why,', 'For example,', 'In conclusion,'],
+        answer: 'That’s why,'
+      },
+      {
+        question: 'Какую фразу лучше использовать для сравнения двух идей?',
+        options: ['Meanwhile,', 'However,', 'On the one hand, … but on the other hand, …', 'I am sure that'],
+        answer: 'On the one hand, … but on the other hand, …'
+      },
+      {
+        question: 'Какая фраза помогает добавить дополнительную информацию?',
+        options: ['Besides,', 'That’s all I wanted to say about', 'I’m going to give a talk about', 'First of all,'],
+        answer: 'Besides,'
+      },
+      {
+        question: 'Как начать заключение?',
+        options: ['To sum up,', 'For example,', 'I am sure that', 'As for me,'],
+        answer: 'To sum up,'
       }
     ];
 
