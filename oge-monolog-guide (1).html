@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>ОГЭ по английскому: подготовка монолога (задание 3)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(15,23,42,0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #dbeafe, #f5f5f7 40%),
+        radial-gradient(circle at bottom right, #e5e7eb, #f5f5f7 60%);
+      color: var(--text);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .page {
+      max-width: 900px;
+      width: 100%;
+      background: var(--surface);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 22px 18px 24px;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 28px 32px 30px;
+      }
+    }
+
+    header {
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-bottom: 8px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .lead {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 46rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      margin: 16px 0 6px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 12px 0 4px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 6px;
+      max-width: 60rem;
+    }
+
+    ul, ol {
+      margin: 4px 0 8px 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    li + li {
+      margin-top: 2px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      padding: 12px 14px;
+      margin: 8px 0 10px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0e7490;
+      border: 1px solid #a5f3fc;
+      margin-bottom: 4px;
+    }
+
+    .phrase-group {
+      margin-bottom: 10px;
+    }
+
+    .phrase-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .phrase-line {
+      font-size: 0.95rem;
+      padding: 3px 0;
+    }
+
+    .phrase-en {
+      font-weight: 500;
+      color: var(--accent-dark);
+    }
+
+    .phrase-ru {
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .tip {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 2px 0 4px;
+    }
+
+    .checklist li::marker {
+      color: #16a34a;
+    }
+
+    footer {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85rem;
+      background: #111827;
+      color: #e5e7eb;
+      padding: 8px 10px;
+      border-radius: 10px;
+      display: block;
+      white-space: pre-wrap;
+      margin: 4px 0 8px;
+    }
+
+    .task-sample {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .task-sample-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+      color: #1d4ed8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .template {
+      background: #fef3c7;
+      border-radius: 4px;
+      padding: 0 2px;
+      font-weight: 600;
+    }
+
+    .practice-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #f8fafc;
+      padding: 18px;
+      margin: 16px 0 20px;
+    }
+
+    .practice-panel h2 {
+      margin-top: 0;
+    }
+
+    .panel-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .panel-row label {
+      min-width: 120px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    select, button {
+      font: inherit;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: white;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    button {
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      background: #e0f2fe;
+    }
+
+    .timer-display {
+      min-width: 90px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .task-card, .practice-quiz {
+      border-radius: var(--radius);
+      background: #ffffff;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .quiz-button {
+      text-align: left;
+      width: 100%;
+    }
+
+    .quiz-result {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0f766e;
+      min-height: 1.4em;
+    }
+
+    .quiz-result.wrong {
+      color: #b91c1c;
+    }
+
+    @media (max-width: 640px) {
+      .panel-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        ОГЭ · Английский · Устная часть · Задание 3 (монолог)
+      </div>
+      <h1>Самоучитель по подготовке монолога на ОГЭ по английскому языку</h1>
+      <p class="lead">
+        Эта страница поможет тебе научиться быстро собирать монолог по плану,
+        говорить связно и использовать полезные клише, чтобы получить максимум баллов.
+      </p>
+    </header>
+
+    <!-- 1. Формат задания -->
+    <section>
+      <h2>1. Что требуют в задании 3</h2>
+      <p><strong>Задание 3</strong> — это тематический монолог по знакомой тебе теме с опорой на план (обычно 4 пункта).</p>
+      <ul>
+        <li>У тебя есть <strong>1,5 минуты на подготовку</strong> и <strong>до 2 минут на ответ</strong>.</li>
+        <li>Рекомендуемый объём — <strong>примерно 10–12 фраз</strong>.</li>
+        <li>Нужно <strong>говорить непрерывно</strong>, а не отдельными короткими ответами на вопросы плана.</li>
+        <li>Монолог должен иметь <strong>вступление</strong>, <strong>основную часть</strong> (4 пункта плана) и <strong>заключение</strong>.</li>
+      </ul>
+
+      <div class="card">
+        <div class="card-title">За что дают баллы</div>
+        <ul>
+          <li><strong>К1 — решение коммуникативной задачи</strong>: раскрыты ли все пункты плана, есть ли нужный объём.</li>
+          <li><strong>К2 — организация</strong>: логичность, связки, вступление и заключение.</li>
+          <li><strong>К3 — языковое оформление</strong>: лексика и грамматика, отсутствие грубых ошибок.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Алгоритм подготовки -->
+    <section>
+      <h2>2. Быстрый алгоритм подготовки за 1,5 минуты</h2>
+      <ol>
+        <li><strong>Внимательно прочитай тему и план.</strong> Подчеркни (мысленно или взглядом) ключевые слова каждого пункта.</li>
+        <li><strong>Сразу придумай вступительную фразу</strong> по шаблону (см. ниже) и перепроверь формулировку темы.</li>
+        <li><strong>На каждый пункт плана</strong> продумай минимум 2 фразы:
+          <ul>
+            <li>1‑я — общий ответ по пункту;</li>
+            <li>2‑я — пример / пояснение / причина.</li>
+          </ul>
+        </li>
+        <li><strong>Реши, какую фразу скажешь в конце</strong> (шаблон заключения).</li>
+        <li><strong>Мысленно проговори каркас монолога</strong> по схеме:
+          <code>вступление → пункт 1 → пункт 2 → пункт 3 → пункт 4 → заключение</code>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 3. Каркас монолога -->
+    <section>
+      <h2>3. Универсальный каркас монолога</h2>
+      <p>Запомни общий скелет, который подходит почти к любой теме:</p>
+
+      <div class="card">
+        <div class="card-title">Шаблон структуры</div>
+        <ol>
+          <li><strong>Вступление</strong> (1–2 фразы)
+            <ul>
+              <li>Представь тему: “<span class="template">I am going to give a talk about</span> …”</li>
+            </ul>
+          </li>
+          <li><strong>Пункт 1 плана</strong> (2–3 фразы)</li>
+          <li><strong>Пункт 2 плана</strong> (2–3 фразы)</li>
+          <li><strong>Пункт 3 плана</strong> (2–3 фразы)</li>
+          <li><strong>Пункт 4 плана</strong> (2–3 фразы)</li>
+          <li><strong>Заключение</strong> (1–2 фразы)
+            <ul>
+              <li>Подведи итог или скажи своё мнение (например, “<span class="template">To sum up</span>, …”, “<span class="template">In conclusion, I’d like to say that</span> …”, “<span class="template">That’s all I wanted to say about</span> …”).</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <p class="tip">
+        Простой ориентир: <strong>1–2 фразы на вступление, по 2–3 фразы на каждый пункт плана и 1–2 фразы на вывод</strong>.
+      </p>
+    </section>
+
+    <!-- 4. Самые полезные шаблонные фразы -->
+    <section>
+      <h2>4. Самые полезные клише и связки для монолога</h2>
+      <p>Ниже — готовый «конструктор» фраз. Выучи по 2–3 варианта из каждой группы и постоянно используй их в тренировках.</p>
+
+      <h3>4.1. Начало монолога (вступление)</h3>
+      <div class="card">
+        <div class="phrase-group">
+          <div class="phrase-label">Вступительная фраза</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">I am going to give a talk about …</span>
+            <span class="phrase-ru">— Я собираюсь рассказать о …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Now I’m going to give a talk about …</span>
+            <span class="phrase-ru">— Сейчас я собираюсь рассказать о …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Today I’d like to tell you about …</span>
+            <span class="phrase-ru">— Сегодня я хотел(а) бы рассказать о …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Обозначить тему своими словами</div>
+          <div class="phrase-line">
+            <span class="phrase-en">This topic is very important for teenagers because …</span>
+            <span class="phrase-ru">— Эта тема очень важна для подростков, потому что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en">Nowadays many people think about …</span>
+            <span class="phrase-ru">— В наше время многие люди задумываются о …</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>4.2. Переход между пунктами плана</h3>
+      <div class="card">
+        <div class="phrase-group">
+          <div class="phrase-label">Переход к первому пункту</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">First of all, I’d like to say that …</span>
+            <span class="phrase-ru">— Прежде всего, я хотел(а) бы сказать, что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">To begin with, …</span>
+            <span class="phrase-ru">— Для начала …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Добавление информации</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Secondly, …</span>
+            <span class="phrase-ru">— Во‑вторых, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Besides, …</span>
+            <span class="phrase-ru">— Кроме того, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Moreover, …</span>
+            <span class="phrase-ru">— Более того, …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Переход к следующему пункту</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">As for the second point, …</span>
+            <span class="phrase-ru">— Что касается второго пункта, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Speaking about the next point, …</span>
+            <span class="phrase-ru">— Говоря о следующем пункте, …</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>4.3. Выражение своего мнения</h3>
+      <div class="card">
+        <div class="phrase-group">
+          <div class="phrase-label">Мнение</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">In my opinion, …</span>
+            <span class="phrase-ru">— По моему мнению, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">To my mind, …</span>
+            <span class="phrase-ru">— На мой взгляд, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">It seems to me that …</span>
+            <span class="phrase-ru">— Мне кажется, что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">I personally believe that …</span>
+            <span class="phrase-ru">— Я лично считаю, что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">As for me, …</span>
+            <span class="phrase-ru">— Что касается меня, …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Уверенность / убеждённость</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">I am sure that …</span>
+            <span class="phrase-ru">— Я уверен(а), что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">I am convinced that …</span>
+            <span class="phrase-ru">— Я убеждён(а), что …</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>4.4. Примеры, причины, сравнения</h3>
+      <div class="card">
+        <div class="phrase-group">
+          <div class="phrase-label">Примеры</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">For example, …</span>
+            <span class="phrase-ru">— Например, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">For instance, …</span>
+            <span class="phrase-ru">— К примеру, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">I’d like to give an example: …</span>
+            <span class="phrase-ru">— Я хотел(а) бы привести пример: …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Причина / следствие</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Because …</span>
+            <span class="phrase-ru">— Потому что …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">That’s why …</span>
+            <span class="phrase-ru">— Поэтому …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Сравнение / противопоставление</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">On the one hand, … but on the other hand, …</span>
+            <span class="phrase-ru">— С одной стороны, … но с другой стороны, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">Some people think that …, while others say that …</span>
+            <span class="phrase-ru">— Некоторые люди думают, что …, в то время как другие говорят, что …</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>4.5. Заключение монолога</h3>
+      <div class="card">
+        <div class="phrase-group">
+          <div class="phrase-label">Подведение итога</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">To sum up, …</span>
+            <span class="phrase-ru">— Подводя итог, …</span>
+          </div>
+          <div class="phrase-line">
+            <span class="phrase-en template">In conclusion, I’d like to say that …</span>
+            <span class="phrase-ru">— В заключение я хотел(а) бы сказать, что …</span>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-label">Классическая финальная фраза</div>
+          <div class="phrase-line">
+            <span class="phrase-en template">That’s all I wanted to say about …</span>
+            <span class="phrase-ru">— Это всё, что я хотел(а) сказать о …</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Интерактивная практика -->
+    <section>
+      <h2>5. Интерактивная практика</h2>
+      <p>Потренируй монолог сразу на странице: выбери тему, получи задание, запусти таймер и ответь на короткую викторину.</p>
+      <div class="practice-panel">
+        <div class="panel-row">
+          <label for="topic-select">Тема</label>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; width: 100%;">
+            <select id="topic-select"></select>
+            <button id="random-topic" type="button">Случайная тема</button>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="card-title">Твоё задание</div>
+          <p id="task-prompt" style="margin-bottom: 10px; color: var(--text-muted);"></p>
+          <ul id="task-bullets"></ul>
+        </div>
+
+        <div class="panel-row timer-row">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button id="prep-button" type="button">Подготовка 1:30</button>
+            <button id="answer-button" type="button">Ответ 2:00</button>
+          </div>
+          <div class="timer-display" id="timer-display">00:00</div>
+        </div>
+
+        <div class="practice-quiz">
+          <div class="card-title">Мини-викторина</div>
+          <p id="quiz-question" style="margin-bottom: 10px;"></p>
+          <div class="quiz-options" id="quiz-options"></div>
+          <div class="quiz-result" id="quiz-result"></div>
+          <button id="quiz-next" type="button">Другой вопрос</button>
+        </div>
+      </div>
+      <p class="tip">Сначала собери монолог в голове, потом произнеси его вслух. После каждой тренировки оцени, всё ли ты успел сказать.</p>
+    </section>
+
+    <!-- 6. Как тренироваться самостоятельно -->
+    <section>
+      <h2>6. Как использовать эту страницу для самоподготовки</h2>
+      <ol class="checklist">
+        <li>Выбери любую тему из демоверсий или учебника (school life, hobbies, travelling, healthy lifestyle и т.п.).</li>
+        <li>Запиши тему и пункты плана на листок или открой на экране.</li>
+        <li>Запусти таймер на <strong>1,5 минуты</strong> и, глядя на раздел 3, быстро собери каркас монолога.</li>
+        <li>По сигналу таймера начни говорить монолог вслух, используя клише из раздела 4.</li>
+        <li>Запиши себя на диктофон, затем прослушай и оцени:
+          <ul>
+            <li>раскрыл(а) ли ты все пункты плана;</li>
+            <li>есть ли вступление и заключение;</li>
+            <li>насколько часто ты используешь связки и клише;</li>
+            <li>уложился(лась) ли ты в <strong>2 минуты</strong>.</li>
+          </ul>
+        </li>
+        <li>Повтори тренировку с другой темой, пока структура и фразы не станут автоматическими.</li>
+      </ol>
+    </section>
+
+    <!-- 7. Примеры монологов по 10 темам + примеры заданий -->
+    <section>
+      <h2>7. Примеры монологов по 10 типичным темам</h2>
+      <p>
+        Ниже — примеры типичных заданий и готовых монологов по основным темам ОГЭ. В монологах
+        <span class="template">шаблонные фразы</span> выделены цветом.
+      </p>
+
+      <!-- 1. Free time -->
+      <div class="card">
+        <div class="pill">Topic: Free time</div>
+        <div class="card-title">Типичное задание «Free time»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about your free time.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>whether you have much free time on weekdays, and why / why not;</li>
+            <li>what you usually do in your free time;</li>
+            <li>how you usually spend your weekends;</li>
+            <li>what your attitude to free time is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «Free time»</div>
+        <p>
+          <span class="template">I am going to give a talk about</span> my free time. <span class="template">First of all, I’d like to say that</span> free time
+          is very important for teenagers because we have a lot of lessons and homework. <span class="template">As for me</span>,
+          I don’t have much free time on weekdays because I usually come home late and have to do my
+          homework. <span class="template">However</span>, I always try to find at least one hour to relax. I enjoy listening to
+          music, watching series in English and chatting with my friends online. At the weekend I
+          often go for a walk in the park or ride a bike with my friends. Sometimes my family and I
+          visit our relatives or go to the cinema. <span class="template">To sum up</span>, I think people should plan their free
+          time carefully to have enough rest and do something useful. <span class="template">That’s all I wanted to say about</span>
+          my free time.
+        </p>
+      </div>
+
+      <!-- 2. School life -->
+      <div class="card">
+        <div class="pill">Topic: School life</div>
+        <div class="card-title">Типичное задание «School life»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about your school life.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>what your typical school day is like;</li>
+            <li>what you like about your school most of all;</li>
+            <li>whether you prefer classroom learning or online learning, and why;</li>
+            <li>what your attitude to your school life is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «School life»</div>
+        <p>
+          <span class="template">Now I’m going to give a talk about</span> my school life. <span class="template">To begin with</span>, I’d like to say that
+          school plays a very important role in our lives because we spend a lot of time there.
+          My typical weekday starts early: I usually get up at seven o’clock and have lessons from
+          eight thirty till two or three o’clock. I study many subjects, but my favourite ones are
+          English and history because they are interesting and useful for my future. <span class="template">Besides</span>, there
+          are different clubs at school, for example a drama club and a sports club. I sometimes stay
+          at school after lessons to play basketball with my classmates. Of course, school life is not
+          always easy because we have tests and exams, but good teachers and friends help me a lot.
+          <span class="template">In conclusion, I’d like to say that</span> I generally enjoy my school life. <span class="template">That’s all I wanted to
+          say about</span> my school.
+        </p>
+      </div>
+
+      <!-- 3. Travelling -->
+      <div class="card">
+        <div class="pill">Topic: Travelling</div>
+        <div class="card-title">Типичное задание «Travelling»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about travelling.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>why many people like travelling nowadays;</li>
+            <li>what means of transport you prefer for travelling, and why;</li>
+            <li>what places you would like to visit in the future;</li>
+            <li>what your attitude to travelling is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «Travelling»</div>
+        <p>
+          <span class="template">Today I’d like to tell you about</span> travelling. Nowadays many people enjoy travelling because
+          it helps them relax and learn something new. <span class="template">In my opinion</span>, travelling is one of the best
+          ways to spend holidays. <span class="template">As for me</span>, I usually travel with my family in summer. We often go
+          to the sea or visit different cities in our country. I like travelling by train because I
+          can look out of the window and admire the beautiful views. <span class="template">Besides</span>, when I travel I can
+          practise foreign languages and meet new people. <span class="template">For example</span>, last year I met some teenagers
+          from another city and we are still in touch. <span class="template">To sum up</span>, I am sure that travelling makes our
+          life more interesting and exciting. <span class="template">That’s all I wanted to say about</span> travelling.
+        </p>
+      </div>
+
+      <!-- 4. Healthy lifestyle / keeping fit -->
+      <div class="card">
+        <div class="pill">Topic: Healthy lifestyle</div>
+        <div class="card-title">Типичное задание «Healthy lifestyle / Keeping fit»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about keeping fit.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>why a healthy lifestyle is popular nowadays;</li>
+            <li>what you do to keep fit;</li>
+            <li>what sports activities are popular with teenagers in your region;</li>
+            <li>what your attitude to a healthy lifestyle is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «Healthy lifestyle / Keeping fit»</div>
+        <p>
+          <span class="template">I am going to give a talk about</span> a healthy lifestyle. Nowadays many people worry about their
+          health because life is very stressful. <span class="template">In my opinion</span>, it is important for teenagers to keep
+          fit if they want to be active and successful. <span class="template">First of all, I’d like to say that</span> we should do
+          sports or at least some physical exercises several times a week. <span class="template">For example</span>, I go to the gym
+          twice a week and sometimes jog in the park. <span class="template">Secondly</span>, we should eat healthy food, such as
+          fruit, vegetables and dairy products, and avoid fast food and sugary drinks. <span class="template">Besides</span>, it is
+          important to sleep enough and spend less time with gadgets. <span class="template">As for me</span>, I try to follow these
+          rules, but sometimes it is difficult because of homework. <span class="template">In conclusion, I’d like to say that</span>
+          a healthy lifestyle helps people feel better and live longer. <span class="template">That’s all I wanted to say about</span>
+          keeping fit.
+        </p>
+      </div>
+
+      <!-- 5. The Internet -->
+      <div class="card">
+        <div class="pill">Topic: The Internet</div>
+        <div class="card-title">Типичное задание «The Internet»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about the Internet.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>what you usually use the Internet for;</li>
+            <li>how the Internet helps you with your studies;</li>
+            <li>what dangers the Internet may have for teenagers;</li>
+            <li>what your attitude to the Internet is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «The Internet»</div>
+        <p>
+          <span class="template">Now I’m going to give a talk about</span> the Internet. Nowadays the Internet has become a part of
+          our everyday life. Teenagers use it for studying, entertainment and communication. <span class="template">As for me</span>,
+          I usually use the Internet to do my homework, watch educational videos and communicate with
+          my friends in social networks. The Internet helps me a lot with my studies because I can
+          quickly find information for my school projects. <span class="template">On the other hand</span>, the Internet can be
+          dangerous because there are some dishonest people and a lot of useless or even harmful
+          content. <span class="template">That’s why</span> parents and teachers should explain how to use it safely. <span class="template">To sum up</span>,
+          I think the Internet is a very useful tool if we use it wisely and do not spend too much
+          time online. <span class="template">That’s all I wanted to say about</span> the Internet.
+        </p>
+      </div>
+
+      <!-- 6. Sport -->
+      <div class="card">
+        <div class="pill">Topic: Sport</div>
+        <div class="card-title">Типичное задание «Sport»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about sport.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>why a lot of young people do sports nowadays;</li>
+            <li>what sports clubs or teams there are in your school or town;</li>
+            <li>what you personally do to keep fit;</li>
+            <li>what your attitude to doing sports activities is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «Sport»</div>
+        <p>
+          <span class="template">I’m going to give a talk about</span> sport. <span class="template">First of all, I’d like to say that</span> sport is very
+          important for modern teenagers because it helps them keep fit and be healthy. Many young
+          people do sports to look good and feel more confident. <span class="template">As for me</span>, I prefer team sports such
+          as football and basketball because I like playing with my friends. We usually play football
+          after school or at the weekend. <span class="template">Besides</span>, I enjoy watching sports competitions on TV and
+          supporting my favourite teams. Of course, doing sport regularly is not always easy because
+          it takes time and energy, but it is worth it. <span class="template">In conclusion, I’d like to say that</span> sport is
+          a good way to relax, make new friends and become stronger. <span class="template">That’s all I wanted to say about</span>
+          sport.
+        </p>
+      </div>
+
+      <!-- 7. Reading / books -->
+      <div class="card">
+        <div class="pill">Topic: Books and reading</div>
+        <div class="card-title">Типичное задание «Books and reading»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about reading books.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>whether reading is popular with teenagers, and why / why not;</li>
+            <li>what kind of books you like reading;</li>
+            <li>why many people prefer e‑books to paper books;</li>
+            <li>what your attitude to reading is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «Books and reading»</div>
+        <p>
+          <span class="template">Today I’d like to tell you about</span> books and reading. Some people think that reading is boring,
+          but I don’t agree with them. <span class="template">In my opinion</span>, reading helps us develop imagination and learn
+          new things. <span class="template">As for me</span>, I try to read regularly, although I am quite busy with my studies.
+          I usually read in the evening before going to bed. I prefer adventure stories and fantasy,
+          but sometimes I read non‑fiction books about history or science. I read both printed books
+          and e‑books; e‑books are light and easy to carry, but paper books create a special atmosphere.
+          <span class="template">Besides</span>, reading in English is a good way to improve my language skills. <span class="template">To sum up</span>, I believe
+          that reading is still very important in the modern world. <span class="template">That’s all I wanted to say about</span>
+          books.
+        </p>
+      </div>
+
+      <!-- 8. Family -->
+      <div class="card">
+        <div class="pill">Topic: Family</div>
+        <div class="card-title">Типичное задание «Family»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about your family.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>whether your family is big or small;</li>
+            <li>how you get on with your parents and siblings;</li>
+            <li>what family traditions you have;</li>
+            <li>what your attitude to your family is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «My family»</div>
+        <p>
+          <span class="template">I am going to give a talk about</span> my family. I think that family is one of the most important
+          things in a person’s life because our relatives always support us. My family is not very big:
+          I live with my parents and my younger sister. My mum is kind and patient, she works as a
+          doctor and often helps people. My dad is strict but fair, he is an engineer. We have some
+          family traditions. <span class="template">For example</span>, we usually have dinner together and talk about our day.
+          At the weekend we sometimes go to the countryside or visit our grandparents. Of course, we
+          sometimes argue, but we always try to understand each other. <span class="template">To sum up</span>, I am sure that my
+          family is my greatest support. <span class="template">That’s all I wanted to say about</span> my family.
+        </p>
+      </div>
+
+      <!-- 9. Best friend -->
+      <div class="card">
+        <div class="pill">Topic: Best friend</div>
+        <div class="card-title">Типичное задание «Best friend / Friendship»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about your best friend.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>why people need friends;</li>
+            <li>how long you and your best friend have known each other;</li>
+            <li>what you enjoy doing together;</li>
+            <li>what your attitude to friendship is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «My best friend»</div>
+        <p>
+          <span class="template">Now I’m going to give a talk about</span> my best friend. <span class="template">In my opinion</span>, everybody needs friends
+          because they make our life more interesting and help us in difficult situations. My best
+          friend’s name is … (you can say any name). We have known each other for many years because
+          we study in the same class. My friend is kind, honest and reliable, and we have a lot of
+          things in common. <span class="template">For example</span>, we both like playing computer games and going to the cinema.
+          We often do homework together and prepare for tests. When I have a problem, I can always
+          talk to my friend and get good advice. <span class="template">To sum up</span>, I think real friendship is very important
+          for teenagers. <span class="template">That’s all I wanted to say about</span> my best friend.
+        </p>
+      </div>
+
+      <!-- 10. My city / town -->
+      <div class="card">
+        <div class="pill">Topic: My city / town</div>
+        <div class="card-title">Типичное задание «My city / town»</div>
+        <div class="task-sample">
+          <div class="task-sample-title">Task 3. Sample task</div>
+          <p><strong>You are going to give a talk about the place where you live.</strong> You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). Remember to say:</p>
+          <ul>
+            <li>where your city or town is situated;</li>
+            <li>what there is in your city or town (schools, parks, places of interest, etc.);</li>
+            <li>what you like and dislike about your city or town;</li>
+            <li>what your attitude to your hometown is.</li>
+          </ul>
+        </div>
+        <div class="card-title">Пример монолога «My city / town»</div>
+        <p>
+          <span class="template">I’m going to give a talk about</span> the place where I live. My city (or town) is situated in the
+          western part of our country. It is not very big, but it is quite comfortable to live in.
+          There are several schools, a few parks, some cinemas and different shops here. The thing
+          that I like most about my city is that there are many green areas where you can walk and
+          relax. <span class="template">Besides</span>, we have some places of interest, <span class="template">for example</span> an old church and a local
+          history museum. Of course, there are some problems too, such as traffic jams and
+          environmental pollution. In the future I would like my city to become cleaner and have more
+          modern sports centres. <span class="template">To sum up</span>, I am proud of my hometown, although it is not perfect.
+          <span class="template">That’s all I wanted to say about</span> my city.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      Регулярно тренируйся по этому шаблону, и монолог на ОГЭ превратится
+      в привычную, понятную задачу, а не в стрессовую неожиданность.
+    </footer>
+  </div>
+  <script>
+    const tasks = [
+      {
+        label: 'Free time',
+        prompt: 'You are going to give a talk about your free time.',
+        bullets: [
+          'whether you have much free time on weekdays, and why / why not;',
+          'what you usually do in your free time;',
+          'how you usually spend your weekends;',
+          'what your attitude to free time is.'
+        ]
+      },
+      {
+        label: 'School life',
+        prompt: 'You are going to give a talk about your school life.',
+        bullets: [
+          'what your typical school day is like;',
+          'what you like about your school most of all;',
+          'whether you prefer classroom learning or online learning, and why;',
+          'what your attitude to your school life is.'
+        ]
+      },
+      {
+        label: 'Travelling',
+        prompt: 'You are going to give a talk about travelling.',
+        bullets: [
+          'why many people like travelling nowadays;',
+          'what means of transport you prefer for travelling, and why;',
+          'what places you would like to visit in the future;',
+          'what your attitude to travelling is.'
+        ]
+      },
+      {
+        label: 'Healthy lifestyle',
+        prompt: 'You are going to give a talk about keeping fit.',
+        bullets: [
+          'why a healthy lifestyle is popular nowadays;',
+          'what you do to keep fit;',
+          'what sports activities are popular with teenagers in your region;',
+          'what your attitude to a healthy lifestyle is.'
+        ]
+      },
+      {
+        label: 'The Internet',
+        prompt: 'You are going to give a talk about the Internet.',
+        bullets: [
+          'what you usually use the Internet for;',
+          'how the Internet helps you with your studies;',
+          'what dangers the Internet may have for teenagers;',
+          'what your attitude to the Internet is.'
+        ]
+      }
+    ];
+
+    const quizData = [
+      {
+        question: 'Какую фразу лучше использовать для начала первого пункта плана?',
+        options: ['In conclusion,', 'First of all,', 'That’s why,', 'On the one hand,'],
+        answer: 'First of all,'
+      },
+      {
+        question: 'Что лучше сказать перед примером?',
+        options: ['For example,', 'To sum up,', 'I personally believe that,', 'As for me,'],
+        answer: 'For example,'
+      },
+      {
+        question: 'Какая фраза подходит для заключения?',
+        options: ['To sum up,', 'Secondly,', 'Besides,', 'As for the second point,'],
+        answer: 'To sum up,'
+      },
+      {
+        question: 'Чем лучше связать второй пункт плана?',
+        options: ['Besides,', 'That’s all I wanted to say about', 'I am sure that', 'Now I’m going to give a talk about'],
+        answer: 'Besides,'
+      }
+    ];
+
+    const topicSelect = document.getElementById('topic-select');
+    const taskPrompt = document.getElementById('task-prompt');
+    const taskBullets = document.getElementById('task-bullets');
+    const randomTopicButton = document.getElementById('random-topic');
+    const prepButton = document.getElementById('prep-button');
+    const answerButton = document.getElementById('answer-button');
+    const timerDisplay = document.getElementById('timer-display');
+    const quizQuestion = document.getElementById('quiz-question');
+    const quizOptions = document.getElementById('quiz-options');
+    const quizResult = document.getElementById('quiz-result');
+    const quizNext = document.getElementById('quiz-next');
+
+    let timerId = null;
+    let remainingSeconds = 0;
+    let activeButton = null;
+    let currentQuizIndex = 0;
+
+    function formatTime(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function updateTimer() {
+      if (remainingSeconds <= 0) {
+        clearInterval(timerId);
+        timerId = null;
+        timerDisplay.textContent = '00:00';
+        if (activeButton) activeButton.disabled = false;
+        activeButton = null;
+        return;
+      }
+      const minutes = Math.floor(remainingSeconds / 60);
+      const seconds = remainingSeconds % 60;
+      timerDisplay.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+      remainingSeconds -= 1;
+    }
+
+    function startTimer(duration, button) {
+      if (timerId) {
+        clearInterval(timerId);
+        if (activeButton) activeButton.disabled = false;
+      }
+      remainingSeconds = duration;
+      activeButton = button;
+      button.disabled = true;
+      updateTimer();
+      timerId = setInterval(updateTimer, 1000);
+    }
+
+    function fillTopic(index) {
+      const task = tasks[index];
+      topicSelect.value = index;
+      taskPrompt.textContent = task.prompt;
+      taskBullets.innerHTML = task.bullets.map(item => `<li>${item}</li>`).join('');
+    }
+
+    function chooseRandomTopic() {
+      const randomIndex = Math.floor(Math.random() * tasks.length);
+      fillTopic(randomIndex);
+    }
+
+    function renderQuiz(index) {
+      currentQuizIndex = index;
+      const quiz = quizData[index];
+      quizQuestion.textContent = quiz.question;
+      quizResult.textContent = '';
+      quizResult.classList.remove('wrong');
+      quizOptions.innerHTML = quiz.options.map((option, optionIndex) =>
+        `<button type="button" class="quiz-button" data-answer="${option}" data-index="${optionIndex}">${option}</button>`
+      ).join('');
+      quizOptions.querySelectorAll('.quiz-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const isCorrect = button.dataset.answer === quiz.answer;
+          quizResult.textContent = isCorrect ? 'Верно! Отличный выбор.' : `Неправильно. Правильный ответ: ${quiz.answer}`;
+          quizResult.classList.toggle('wrong', !isCorrect);
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      tasks.forEach((task, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = task.label;
+        topicSelect.append(option);
+      });
+      fillTopic(0);
+      renderQuiz(0);
+
+      topicSelect.addEventListener('change', () => fillTopic(Number(topicSelect.value)));
+      randomTopicButton.addEventListener('click', chooseRandomTopic);
+      prepButton.addEventListener('click', () => startTimer(90, prepButton));
+      answerButton.addEventListener('click', () => startTimer(120, answerButton));
+      quizNext.addEventListener('click', () => {
+        const nextIndex = (currentQuizIndex + 1) % quizData.length;
+        renderQuiz(nextIndex);
+      });
+    });
+  </script>
+</body>
+</html>
