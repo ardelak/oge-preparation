@@ -233,6 +233,42 @@
       margin-bottom: 10px;
     }
 
+    .spoiler-card {
+      border-radius: var(--radius);
+      background: #ffffff;
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .spoiler-toggle {
+      width: 100%;
+      max-width: 260px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    .spoiler-toggle:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .spoiler-content {
+      display: none;
+      margin-top: 16px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .spoiler-content.open {
+      display: block;
+    }
+
     .panel-row {
       display: flex;
       flex-wrap: wrap;
@@ -650,18 +686,18 @@
           <p class="tip" style="margin-top: 10px;">Во время подготовки быстро заполни этот каркас мысленно или письменно.</p>
         </div>
 
-        <div class="task-card spoiler-card">
-          <div class="card-title">Образец ответа</div>
-          <button id="toggle-sample" type="button" class="spoiler-toggle">Показать образец ответа</button>
-          <div id="sample-answer" class="spoiler-content"></div>
-        </div>
-
         <div class="panel-row timer-row">
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <button id="prep-button" type="button">Подготовка 1:30</button>
             <button id="answer-button" type="button">Ответ 2:00</button>
           </div>
           <div class="timer-display" id="timer-display">00:00</div>
+        </div>
+
+        <div class="task-card spoiler-card">
+          <div class="card-title">Образец ответа</div>
+          <button id="toggle-sample" type="button" class="spoiler-toggle">Показать образец ответа</button>
+          <div id="sample-answer" class="spoiler-content"></div>
         </div>
 
         <div class="practice-quiz">
@@ -998,7 +1034,10 @@
           'what you usually do in your free time;',
           'how you usually spend your weekends;',
           'what your attitude to free time is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I am going to give a talk about</span> my free time. <span class="template">First of all, I’d like to say that</span> free time is very important for teenagers because we have a lot of lessons and homework. <span class="template">As for me</span>, I don’t have much free time on weekdays because I usually come home late and have to do my homework. <span class="template">However</span>, I always try to find at least one hour to relax. I enjoy listening to music, watching series in English and chatting with my friends online. At the weekend I often go for a walk in the park or ride a bike with my friends. Sometimes my family and I visit our relatives or go to the cinema. <span class="template">To sum up</span>, I think people should plan their free time carefully to have enough rest and do something useful. <span class="template">That’s all I wanted to say about</span> my free time.</p>
+        `
       },
       {
         label: 'School life',
@@ -1008,7 +1047,10 @@
           'what you like about your school most of all;',
           'whether you prefer classroom learning or online learning, and why;',
           'what your attitude to your school life is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Now I’m going to give a talk about</span> my school life. <span class="template">To begin with</span>, I’d like to say that school plays a very important role in our lives because we spend a lot of time there. My typical weekday starts early: I usually get up at seven o’clock and have lessons from eight thirty till two or three o’clock. I study many subjects, but my favourite ones are English and history because they are interesting and useful for my future. <span class="template">Besides</span>, there are different clubs at school, for example a drama club and a sports club. I sometimes stay at school after lessons to play basketball with my classmates. Of course, school life is not always easy because we have tests and exams, but good teachers and friends help me a lot. <span class="template">In conclusion, I’d like to say that</span> I generally enjoy my school life. <span class="template">That’s all I wanted to say about</span> my school.</p>
+        `
       },
       {
         label: 'Travelling',
@@ -1018,7 +1060,10 @@
           'what means of transport you prefer for travelling, and why;',
           'what places you would like to visit in the future;',
           'what your attitude to travelling is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Today I’d like to tell you about</span> travelling. Nowadays many people enjoy travelling because it helps them relax and learn something new. <span class="template">In my opinion</span>, travelling is one of the best ways to spend holidays. <span class="template">As for me</span>, I usually travel with my family in summer. We often go to the sea or visit different cities in our country. I like travelling by train because I can look out of the window and admire the beautiful views. <span class="template">Besides</span>, when I travel I can practise foreign languages and meet new people. <span class="template">For example</span>, last year I met some teenagers from another city and we are still in touch. <span class="template">To sum up</span>, I am sure that travelling makes our life more interesting and exciting. <span class="template">That’s all I wanted to say about</span> travelling.</p>
+        `
       },
       {
         label: 'Healthy lifestyle',
@@ -1028,7 +1073,10 @@
           'what you do to keep fit;',
           'what sports activities are popular with teenagers in your region;',
           'what your attitude to a healthy lifestyle is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I am going to give a talk about</span> a healthy lifestyle. Nowadays many people worry about their health because life is very stressful. <span class="template">In my opinion</span>, it is important for teenagers to keep fit if they want to be active and successful. <span class="template">First of all, I’d like to say that</span> we should do sports or at least some physical exercises several times a week. <span class="template">For example</span>, I go to the gym twice a week and sometimes jog in the park. <span class="template">Secondly</span>, we should eat healthy food, such as fruit, vegetables and dairy products, and avoid fast food and sugary drinks. <span class="template">Besides</span>, it is important to sleep enough and spend less time with gadgets. <span class="template">As for me</span>, I try to follow these rules, but sometimes it is difficult because of homework. <span class="template">In conclusion, I’d like to say that</span> a healthy lifestyle helps people feel better and live longer. <span class="template">That’s all I wanted to say about</span> keeping fit.</p>
+        `
       },
       {
         label: 'The Internet',
@@ -1064,7 +1112,10 @@
           'what kind of books you like reading;',
           'why many people prefer e-books to paper books;',
           'what your attitude to reading is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Today I’d like to tell you about</span> books and reading. Some people think that reading is boring, but I don’t agree with them. <span class="template">In my opinion</span>, reading helps us develop imagination and learn new things. <span class="template">As for me</span>, I try to read regularly, although I am quite busy with my studies. I usually read in the evening before going to bed. I prefer adventure stories and fantasy, but sometimes I read non-fiction books about history or science. I read both printed books and e-books; e-books are light and easy to carry, but paper books create a special atmosphere. <span class="template">Besides</span>, reading in English is a good way to improve my language skills. <span class="template">To sum up</span>, I believe that reading is still very important in the modern world. <span class="template">That’s all I wanted to say about</span> books.</p>
+        `
       },
       {
         label: 'Family',
@@ -1074,7 +1125,10 @@
           'how you get on with your parents and siblings;',
           'what family traditions you have;',
           'what your attitude to your family is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I am going to give a talk about</span> my family. I think that family is one of the most important things in a person’s life because our relatives always support us. My family is not very big: I live with my parents and my younger sister. My mum is kind and patient, she works as a doctor and often helps people. My dad is strict but fair, he is an engineer. We have some family traditions. <span class="template">For example</span>, we usually have dinner together and talk about our day. At the weekend we sometimes go to the countryside or visit our grandparents. Of course, we sometimes argue, but we always try to understand each other. <span class="template">To sum up</span>, I am sure that my family is my greatest support. <span class="template">That’s all I wanted to say about</span> my family.</p>
+        `
       },
       {
         label: 'Best friend',
@@ -1110,7 +1164,10 @@
           'how much time you spend on your hobbies;',
           'what equipment or place you need for your hobbies;',
           'what your attitude to hobbies is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Today I’d like to tell you about</span> my hobbies. I enjoy learning new skills and spending my free time actively. <span class="template">As for me</span>, I often read books, draw pictures and go for a run in the mornings. <span class="template">For example</span>, on weekends I usually practise drawing or play the guitar for an hour. <span class="template">I personally believe that</span> hobbies help people relax and grow. <span class="template">To sum up</span>, I think hobbies are an important part of a happy life. <span class="template">That’s all I wanted to say about</span> my hobbies.</p>
+        `
       },
       {
         label: 'Environment',
@@ -1120,7 +1177,10 @@
           'what problems exist in your area or country;',
           'what people can do to help the environment;',
           'what your attitude to nature and ecology is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I am going to give a talk about</span> the environment. <span class="template">First of all, I’d like to say that</span> nature is very important for all people because it gives us clean air, water and food. <span class="template">For example</span>, in my area we have a lot of air pollution and fewer green spaces than before. <span class="template">That’s why</span> we should plant trees, recycle more and save electricity. <span class="template">As for me</span>, I try to separate plastic and paper at home and use a reusable bottle. <span class="template">To sum up</span>, I believe that everyone can help nature by making small everyday choices. <span class="template">That’s all I wanted to say about</span> the environment.</p>
+        `
       },
       {
         label: 'Food and health',
@@ -1130,7 +1190,10 @@
           'why healthy food is important;',
           'what foods you like or dislike;',
           'what your attitude to diet and health is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">I am going to give a talk about</span> healthy eating. <span class="template">In my opinion</span>, good food is the basis of a strong body and a clear mind. <span class="template">First of all, I’d like to say that</span> I usually eat vegetables, fruit and lean meat. <span class="template">For example</span>, I have oatmeal for breakfast and a salad for lunch most days. <span class="template">As for me</span>, I do not eat too much fast food, but I sometimes enjoy a small treat. <span class="template">To sum up</span>, I think healthy eating helps teenagers feel more energetic and ready to study. <span class="template">That’s all I wanted to say about</span> food and health.</p>
+        `
       },
       {
         label: 'Movies and music',
@@ -1140,7 +1203,10 @@
           'how often you watch movies or listen to music;',
           'which artists or actors you admire and why;',
           'what your attitude to movies and music is.'
-        ]
+        ],
+        sample: `
+          <p><span class="template">Today I’d like to tell you about</span> movies and music. <span class="template">In my opinion</span>, films and songs are a great way to relax after a busy day. <span class="template">As for me</span>, I usually listen to pop music and watch films on weekends. <span class="template">For example</span>, I like films with interesting stories and good actors, and I often listen to songs that make me feel happy. <span class="template">Besides</span>, music helps me learn English because I can sing along and remember new words. <span class="template">To sum up</span>, I believe that movies and music are very useful and enjoyable. <span class="template">That’s all I wanted to say about</span> movies and music.</p>
+        `
       },
       {
         label: 'Future plans',
@@ -1221,6 +1287,8 @@
     const quizOptions = document.getElementById('quiz-options');
     const quizResult = document.getElementById('quiz-result');
     const quizNext = document.getElementById('quiz-next');
+    const toggleSample = document.getElementById('toggle-sample');
+    const sampleAnswer = document.getElementById('sample-answer');
 
     let timerId = null;
     let remainingSeconds = 0;
@@ -1263,6 +1331,9 @@
       topicSelect.value = index;
       taskPrompt.textContent = task.prompt;
       taskBullets.innerHTML = task.bullets.map(item => `<li>${item}</li>`).join('');
+      sampleAnswer.innerHTML = task.sample || '<p style="color: var(--text-muted); margin: 0;">Пример ответа пока недоступен для этой темы.</p>';
+      sampleAnswer.classList.remove('open');
+      toggleSample.textContent = 'Показать образец ответа';
     }
 
     function chooseRandomTopic() {
@@ -1305,6 +1376,10 @@
       quizNext.addEventListener('click', () => {
         const nextIndex = (currentQuizIndex + 1) % quizData.length;
         renderQuiz(nextIndex);
+      });
+      toggleSample.addEventListener('click', () => {
+        const isOpen = sampleAnswer.classList.toggle('open');
+        toggleSample.textContent = isOpen ? 'Скрыть образец ответа' : 'Показать образец ответа';
       });
     });
   </script>
