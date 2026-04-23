@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ОГЭ Английский — Тренажёр «Письмо»</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --border: #e0e0e4;
+  --text: #1d1d1f;
+  --muted: #86868b;
+  --accent: #2D6AE0;
+  --green: #22a355;
+  --orange: #e68a00;
+  --red: #d93636;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+button { font-family: inherit; cursor: pointer; }
+button:hover { opacity: 0.88; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #c5c5ca; border-radius: 3px; }
+
+.header {
+  padding: 16px 24px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); flex-wrap: wrap; gap: 12px;
+}
+.header-title h1 { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+.header-title p { font-size: 12px; color: var(--muted); font-weight: 500; }
+.mode-tabs { display: flex; gap: 4px; background: var(--bg); border-radius: 10px; padding: 3px; }
+.mode-tab {
+  padding: 8px 14px; border: none; border-radius: 8px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+  background: transparent; color: var(--muted); transition: all 0.2s;
+}
+.mode-tab.active { color: #fff; background: var(--accent); }
+
+.layout { display: flex; }
+.sidebar {
+  width: 230px; border-right: 1px solid var(--border); padding: 16px 12px;
+  background: var(--surface); min-height: calc(100vh - 65px); flex-shrink: 0;
+  overflow-y: auto;
+}
+.sidebar-label {
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 12px 8px;
+}
+.topic-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 11px 14px; border: none; border-radius: 10px;
+  margin-bottom: 3px; text-align: left; transition: all 0.15s;
+  background: transparent; border-left: 3px solid transparent;
+}
+.topic-btn .icon { font-size: 18px; flex-shrink: 0; }
+.topic-btn .label { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
+.topic-btn.active { background: #2D6AE015; border-left-color: var(--accent); }
+.topic-btn.active .label { font-weight: 700; color: var(--accent); }
+
+.info-box {
+  margin-top: 16px; padding: 14px; background: var(--bg); border-radius: 12px;
+}
+.info-box .title { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px; }
+.info-box .body { font-size: 12px; color: var(--text); line-height: 1.7; }
+
+.main { flex: 1; padding: 24px 32px; max-width: 860px; min-height: calc(100vh - 65px); }
+.content-header h2 {
+  font-size: 22px; font-weight: 800; color: var(--accent);
+  display: flex; align-items: center; gap: 10px;
+}
+.content-header p { margin-top: 4px; font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+/* Accordion sections */
+.acc-section { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); margin-bottom: 10px; }
+.acc-header {
+  width: 100%; padding: 14px 20px; background: none; border: none;
+  display: flex; justify-content: space-between; align-items: center; text-align: left;
+}
+.acc-header .title { font-size: 14px; font-weight: 700; color: var(--text); }
+.acc-toggle { font-size: 18px; font-weight: 700; color: var(--accent); transition: transform 0.2s; }
+.acc-body { padding: 4px 20px 18px; }
+
+/* Template cards */
+.tpl-card {
+  background: var(--bg); border-radius: 10px; padding: 14px 18px; margin-bottom: 10px;
+  border-left: 3px solid var(--accent);
+}
+.tpl-en { font-size: 14px; font-weight: 600; line-height: 1.6; color: var(--text); margin-bottom: 4px; }
+.tpl-ru { font-size: 13px; color: var(--muted); line-height: 1.5; font-style: italic; }
+
+/* Phrase grid */
+.phrase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.phrase-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 18px; border-top: 3px solid var(--accent);
+}
+.phrase-card h4 { font-size: 13px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.phrase-item { margin-bottom: 6px; }
+.phrase-item .en { font-size: 13px; font-weight: 600; color: var(--text); }
+.phrase-item .ru { font-size: 12px; color: var(--muted); }
+
+/* Topic keywords */
+.kw-section { margin-bottom: 16px; }
+.kw-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.kw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+.kw-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px 16px;
+}
+.kw-card h5 { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; }
+.kw-item { font-size: 13px; line-height: 1.6; margin-bottom: 4px; }
+.kw-item .en { font-weight: 600; }
+.kw-item .ru { color: var(--muted); font-size: 12px; }
+
+/* Practice area */
+.practice-container { display: flex; flex-direction: column; gap: 16px; }
+.prompt-card {
+  background: var(--surface); border: 2px solid var(--accent); border-radius: 14px;
+  padding: 20px 24px;
+}
+.prompt-card .label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.prompt-card .text { font-size: 14px; line-height: 1.7; }
+.prompt-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.prompt-btn {
+  padding: 8px 16px; border-radius: 8px; border: 1.5px solid var(--accent);
+  background: transparent; color: var(--accent); font-size: 12px; font-weight: 600;
+}
+.prompt-btn.filled { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.editor-area {
+  position: relative; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.editor-area textarea {
+  width: 100%; min-height: 320px; padding: 20px 24px; border: none; outline: none;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.8;
+  color: var(--text); background: transparent; resize: vertical;
+}
+.editor-area textarea::placeholder { color: #bbb; }
+
+.word-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px; border-top: 1px solid var(--border); background: var(--bg);
+}
+.word-count-num { font-size: 28px; font-weight: 800; }
+.word-label { font-size: 12px; color: var(--muted); }
+.word-indicator {
+  padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+.word-meter { width: 200px; height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.word-meter-fill { height: 100%; border-radius: 4px; transition: width 0.3s, background 0.3s; }
+
+/* Structure guide */
+.structure-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 20px 24px; margin-bottom: 12px;
+}
+.structure-card .step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 13px; font-weight: 800; margin-right: 10px;
+}
+.structure-card .step-title { font-size: 15px; font-weight: 700; display: inline; }
+.structure-card .step-body { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--text); }
+.structure-card .step-example { margin-top: 8px; padding: 12px 16px; background: var(--bg); border-radius: 10px; border-left: 3px solid var(--accent); }
+.structure-card .step-example .en { font-size: 13px; font-weight: 600; line-height: 1.6; }
+.structure-card .step-example .ru { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .sidebar.open { display: block; position: fixed; z-index: 100; top: 0; left: 0; height: 100vh; width: 260px; }
+  .main { padding: 16px; }
+  .mode-tabs { flex-wrap: wrap; }
+  .mobile-toggle { display: block !important; }
+  .phrase-grid, .kw-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="mobile-toggle" style="display:none;background:none;border:none;color:var(--text);font-size:22px" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+    <div class="header-title">
+      <h1>ОГЭ Английский — Письмо</h1>
+      <p>Тренажёр раздела «Письмо личного характера» • Задание 35</p>
+    </div>
+  </div>
+  <div class="mode-tabs" id="modeTabs"></div>
+</div>
+
+<div class="layout">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="main">
+    <div class="content-header" id="contentHeader"></div>
+    <div id="content"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// MODES & TOPICS
+// ═══════════════════════════════════════════════════════════════
+const MODES = [
+  { id: "structure", name: "Структура письма", icon: "📐" },
+  { id: "templates", name: "Шаблоны", icon: "📝" },
+  { id: "topics", name: "Темы и фразы", icon: "💬" },
+  { id: "practice", name: "Тренажёр", icon: "✍️" },
+];
+
+const SIDEBAR_TOPICS = [
+  { id: "hobbies", icon: "🎨", name: "Хобби и увлечения" },
+  { id: "school", icon: "🏫", name: "Школа и учёба" },
+  { id: "family", icon: "👨‍👩‍👧‍👦", name: "Семья и друзья" },
+  { id: "travel", icon: "✈️", name: "Путешествия и каникулы" },
+  { id: "sport", icon: "⚽", name: "Спорт и здоровье" },
+  { id: "food", icon: "🍕", name: "Еда и кулинария" },
+  { id: "tech", icon: "📱", name: "Технологии и интернет" },
+  { id: "nature", icon: "🌿", name: "Природа и экология" },
+  { id: "books", icon: "📚", name: "Книги и кино" },
+  { id: "future", icon: "🎓", name: "Планы на будущее" },
+  { id: "city", icon: "🏙️", name: "Город и деревня" },
+  { id: "shopping", icon: "🛍️", name: "Покупки и мода" },
+  { id: "holidays", icon: "🎄", name: "Праздники и традиции" },
+  { id: "pets", icon: "🐾", name: "Домашние животные" },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// STRUCTURE DATA
+// ═══════════════════════════════════════════════════════════════
+const STRUCTURE = [
+  {
+    num: 1, title: "Адрес и дата (верхний правый угол)",
+    body: "Краткий адрес (город, страна) и дата под ним. Можно писать только город.",
+    examples: [
+      { en: "Moscow, Russia\n15 March 2025", ru: "Москва, Россия\n15 марта 2025" },
+      { en: "St Petersburg, Russia\n10 April 2025", ru: "Санкт-Петербург, Россия\n10 апреля 2025" },
+    ]
+  },
+  {
+    num: 2, title: "Приветствие",
+    body: "Обращение по имени с запятой. Имя берётся из задания.",
+    examples: [
+      { en: "Dear Tom,", ru: "Дорогой Том," },
+      { en: "Dear Alice,", ru: "Дорогая Элис," },
+    ]
+  },
+  {
+    num: 3, title: "Благодарность за письмо + извинение/объяснение задержки",
+    body: "Первый абзац: поблагодарите за письмо, выразите радость, при желании извинитесь за задержку с ответом.",
+    examples: [
+      { en: "Thanks for your letter. It was great to hear from you.", ru: "Спасибо за письмо. Было приятно получить от тебя весточку." },
+      { en: "Thank you for your recent letter. I was really happy to hear from you again.", ru: "Спасибо за твоё недавнее письмо. Я был(а) очень рад(а) снова получить от тебя весточку." },
+      { en: "I was glad to get your letter. Sorry I haven't written for so long — I've been really busy with my exams.", ru: "Я был(а) рад(а) получить твоё письмо. Извини, что долго не писал(а) — был(а) очень занят(а) экзаменами." },
+    ]
+  },
+  {
+    num: 4, title: "Основная часть (ответы на вопросы)",
+    body: "Второй и/или третий абзац: ответьте на ВСЕ вопросы из письма друга. Каждый вопрос — хотя бы 1–2 предложения. Это самая важная часть!",
+    examples: [
+      { en: "You asked me about my favourite hobby. Well, I really enjoy painting. I've been doing it since I was seven and I find it very relaxing.", ru: "Ты спросил(а) меня о моём любимом хобби. Ну, мне очень нравится рисовать. Я занимаюсь этим с семи лет, и это меня очень расслабляет." },
+      { en: "As for your question about school trips, we went to a museum last month. It was really interesting because we saw a lot of ancient artefacts.", ru: "Что касается твоего вопроса о школьных экскурсиях — мы ездили в музей в прошлом месяце. Было очень интересно, потому что мы увидели много древних артефактов." },
+    ]
+  },
+  {
+    num: 5, title: "Завершающая фраза + причина окончания",
+    body: "Объясните, почему заканчиваете письмо, и предложите поддерживать связь.",
+    examples: [
+      { en: "Well, I have to go now because I need to help my mum with dinner. Write back soon!", ru: "Ну, мне пора идти, потому что мне нужно помочь маме с ужином. Пиши скорее!" },
+      { en: "Anyway, I must go now — I've got homework to do. Keep in touch!", ru: "В общем, мне нужно идти — надо делать уроки. Не пропадай!" },
+      { en: "I'd better go now as it's getting late. I'm looking forward to hearing from you soon.", ru: "Мне лучше идти, уже поздно. С нетерпением жду твоего ответа." },
+    ]
+  },
+  {
+    num: 6, title: "Заключительная формула и подпись",
+    body: "Прощание, запятая, новая строка — ваше имя (без фамилии!).",
+    examples: [
+      { en: "Best wishes,\nAlexander", ru: "С наилучшими пожеланиями,\nАлександр" },
+      { en: "Love,\nMaria", ru: "С любовью,\nМария" },
+      { en: "Take care,\nDmitry", ru: "Береги себя,\nДмитрий" },
+      { en: "Yours,\nAnna", ru: "Твоя,\nАнна" },
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// TEMPLATES
+// ═══════════════════════════════════════════════════════════════
+const TEMPLATES = {
+  opening: {
+    title: "🟢 Начало письма (Opening)",
+    items: [
+      { en: "Thanks for your letter. It was great to hear from you.", ru: "Спасибо за письмо. Было приятно получить от тебя весточку." },
+      { en: "Thank you for your recent letter. I was really glad to hear from you again.", ru: "Спасибо за твоё недавнее письмо. Я был(а) очень рад(а) снова услышать тебя." },
+      { en: "I was so happy to get your letter. It's always nice to hear from you.", ru: "Я был(а) так рад(а) получить твоё письмо. Всегда приятно получать от тебя весточку." },
+      { en: "Thanks a lot for your letter. I'm sorry I haven't written for ages, but I was really busy with school.", ru: "Большое спасибо за письмо. Извини, что давно не писал(а), но я был(а) очень занят(а) школой." },
+      { en: "It was great to hear from you! I'm sorry for not writing sooner — I've had a lot going on.", ru: "Было здорово получить от тебя весточку! Извини, что не написал(а) раньше — у меня было много дел." },
+      { en: "Thank you so much for your letter. I always enjoy reading your emails!", ru: "Большое спасибо за твоё письмо. Мне всегда нравится читать твои письма!" },
+      { en: "I was really pleased to get your letter. How are things going?", ru: "Я был(а) очень рад(а) получить твоё письмо. Как у тебя дела?" },
+    ]
+  },
+  body_transitions: {
+    title: "🔵 Переходные фразы для основной части (Body Transitions)",
+    items: [
+      { en: "You asked me about... Well, I'd like to tell you that...", ru: "Ты спросил(а) меня о... Ну, хочу рассказать тебе, что..." },
+      { en: "As for your question about..., I can say that...", ru: "Что касается твоего вопроса о..., могу сказать, что..." },
+      { en: "In your letter you asked me about... Let me tell you...", ru: "В своём письме ты спросил(а) меня о... Позволь рассказать тебе..." },
+      { en: "To answer your question about..., I'd say that...", ru: "Отвечая на твой вопрос о..., я бы сказал(а), что..." },
+      { en: "Well, you want to know about... I think...", ru: "Ну, ты хочешь узнать о... Я думаю..." },
+      { en: "As for me, I...", ru: "Что касается меня, я..." },
+      { en: "Speaking about..., I must say that...", ru: "Говоря о..., должен(а) сказать, что..." },
+      { en: "Actually, ...", ru: "Вообще-то, ..." },
+      { en: "To be honest, ...", ru: "Если честно, ..." },
+      { en: "By the way, ...", ru: "Кстати, ..." },
+    ]
+  },
+  closing: {
+    title: "🔴 Завершение письма (Closing)",
+    items: [
+      { en: "Well, I have to go now because I need to help my mum.", ru: "Ну, мне пора — мне нужно помочь маме." },
+      { en: "Anyway, I must finish now — I've got lots of homework to do.", ru: "В общем, заканчиваю — у меня много домашней работы." },
+      { en: "I'd better go now as it's getting late.", ru: "Мне лучше идти, уже поздно." },
+      { en: "Well, I have to stop here because my mum is calling me for dinner.", ru: "Ну, мне пора заканчивать — мама зовёт ужинать." },
+      { en: "I must go now — my favourite TV show is about to start.", ru: "Мне нужно бежать — скоро начнётся мой любимый сериал." },
+      { en: "Sorry, but I have to go — I need to walk the dog.", ru: "Извини, мне нужно идти — надо выгулять собаку." },
+      { en: "Write back soon! / Keep in touch! / Hope to hear from you soon!", ru: "Пиши скорее! / Не пропадай! / Надеюсь скоро получить от тебя ответ!" },
+      { en: "I'm looking forward to hearing from you.", ru: "С нетерпением жду твоего ответа." },
+      { en: "I can't wait to hear from you!", ru: "Жду с нетерпением!" },
+    ]
+  },
+  sign_off: {
+    title: "✒️ Подпись (Sign-off)",
+    items: [
+      { en: "Best wishes, (your name)", ru: "С наилучшими пожеланиями, (имя)" },
+      { en: "Love, (your name)", ru: "С любовью, (имя)" },
+      { en: "Take care, (your name)", ru: "Береги себя, (имя)" },
+      { en: "Yours, (your name)", ru: "Твой/Твоя, (имя)" },
+      { en: "All the best, (your name)", ru: "Всего наилучшего, (имя)" },
+      { en: "With love, (your name)", ru: "С любовью, (имя)" },
+    ]
+  },
+};
+
+// ═══════════════════════════════════════════════════════════════
+// TOPIC KEYWORDS & PHRASES
+// ═══════════════════════════════════════════════════════════════
+const TOPIC_DATA = {
+  hobbies: {
+    name: "Хобби и увлечения", icon: "🎨",
+    phrases: [
+      { en: "My favourite hobby is...", ru: "Моё любимое хобби — ..." },
+      { en: "I'm keen on / fond of ...", ru: "Я увлекаюсь ..." },
+      { en: "I've been doing it for ... years", ru: "Я занимаюсь этим ... лет" },
+      { en: "In my free time I usually...", ru: "В свободное время я обычно ..." },
+      { en: "I took up ... last year", ru: "Я начал(а) заниматься ... в прошлом году" },
+      { en: "It helps me relax / express myself", ru: "Это помогает мне расслабиться / выразить себя" },
+      { en: "I practise ... every day / at weekends", ru: "Я занимаюсь ... каждый день / по выходным" },
+      { en: "I'd recommend it to anyone who likes...", ru: "Я бы порекомендовал(а) это тому, кто любит ..." },
+    ],
+    sample_q: "Tom writes: 'What hobbies do you have? How much time do you spend on your hobby? Would you like to take up a new hobby?'",
+    sample_q_ru: "Том пишет: «Какие у тебя хобби? Сколько времени ты тратишь на своё хобби? Хотел(а) бы ты начать новое хобби?»",
+  },
+  school: {
+    name: "Школа и учёба", icon: "🏫",
+    phrases: [
+      { en: "My favourite subject is ... because...", ru: "Мой любимый предмет — ..., потому что..." },
+      { en: "I'm good at / I struggle with ...", ru: "Мне хорошо даётся / Мне тяжело с ..." },
+      { en: "We have ... lessons a day", ru: "У нас ... уроков в день" },
+      { en: "I usually spend ... hours on homework", ru: "Обычно я трачу ... часов на домашнюю работу" },
+      { en: "Our school is quite big / modern / friendly", ru: "Наша школа довольно большая / современная / дружелюбная" },
+      { en: "I think ... is the most useful subject", ru: "Я думаю, ... — самый полезный предмет" },
+      { en: "I get along well with my classmates", ru: "Я хорошо лажу с одноклассниками" },
+      { en: "I'm preparing for my exams right now", ru: "Я сейчас готовлюсь к экзаменам" },
+    ],
+    sample_q: "Alice writes: 'What is your favourite subject at school? Do you have a lot of homework? What do you like most about your school?'",
+    sample_q_ru: "Элис пишет: «Какой твой любимый предмет? Много ли у тебя домашней работы? Что тебе больше всего нравится в школе?»",
+  },
+  family: {
+    name: "Семья и друзья", icon: "👨‍👩‍👧‍👦",
+    phrases: [
+      { en: "There are ... people in my family", ru: "В моей семье ... человек" },
+      { en: "My best friend is ... / I've known him/her since...", ru: "Мой лучший друг — ... / Я знаю его/её с ..." },
+      { en: "We get on really well", ru: "Мы очень хорошо ладим" },
+      { en: "We enjoy spending time together", ru: "Нам нравится проводить время вместе" },
+      { en: "My parents are very supportive", ru: "Мои родители очень меня поддерживают" },
+      { en: "We usually ... at weekends as a family", ru: "Обычно по выходным мы всей семьёй ..." },
+      { en: "A true friend is someone who...", ru: "Настоящий друг — это тот, кто ..." },
+      { en: "I have an elder/younger brother/sister", ru: "У меня есть старший/младший брат/сестра" },
+    ],
+    sample_q: "Ben writes: 'Do you have a big family? What do you do together at weekends? Do you often see your friends after school?'",
+    sample_q_ru: "Бен пишет: «У тебя большая семья? Что вы делаете вместе по выходным? Ты часто видишься с друзьями после школы?»",
+  },
+  travel: {
+    name: "Путешествия и каникулы", icon: "✈️",
+    phrases: [
+      { en: "Last summer I went to...", ru: "Прошлым летом я ездил(а) в ..." },
+      { en: "I travelled with my family / friends", ru: "Я путешествовал(а) с семьёй / друзьями" },
+      { en: "We stayed in a hotel / at a campsite", ru: "Мы остановились в отеле / на кемпинге" },
+      { en: "The most memorable thing was...", ru: "Самое запоминающееся было ..." },
+      { en: "I'd love to visit ... one day", ru: "Я бы хотел(а) когда-нибудь посетить ..." },
+      { en: "I prefer beach holidays / sightseeing / adventure trips", ru: "Я предпочитаю пляжный отдых / осмотр достопримечательностей / приключения" },
+      { en: "Travelling helps you learn about different cultures", ru: "Путешествия помогают узнать о разных культурах" },
+      { en: "I usually spend my holidays in...", ru: "Обычно я провожу каникулы в ..." },
+    ],
+    sample_q: "Emma writes: 'Where did you go on holiday last summer? What did you do there? Where would you like to travel in the future?'",
+    sample_q_ru: "Эмма пишет: «Куда ты ездил(а) на каникулы прошлым летом? Что ты там делал(а)? Куда бы ты хотел(а) поехать в будущем?»",
+  },
+  sport: {
+    name: "Спорт и здоровье", icon: "⚽",
+    phrases: [
+      { en: "I do sport regularly / I go to the gym", ru: "Я регулярно занимаюсь спортом / хожу в зал" },
+      { en: "My favourite sport is...", ru: "Мой любимый вид спорта — ..." },
+      { en: "I think it's important to stay fit", ru: "Я думаю, важно оставаться в форме" },
+      { en: "I try to eat healthy food", ru: "Я стараюсь есть здоровую пищу" },
+      { en: "I play ... for my school team", ru: "Я играю в ... за школьную команду" },
+      { en: "Doing sport helps me feel more energetic", ru: "Занятия спортом помогают мне чувствовать себя энергичнее" },
+      { en: "I train ... times a week", ru: "Я тренируюсь ... раз в неделю" },
+    ],
+    sample_q: "Jack writes: 'Do you do any sports? How often do you exercise? What do you think is the best way to stay healthy?'",
+    sample_q_ru: "Джек пишет: «Ты занимаешься спортом? Как часто ты тренируешься? Как, по-твоему, лучше всего поддерживать здоровье?»",
+  },
+  food: {
+    name: "Еда и кулинария", icon: "🍕",
+    phrases: [
+      { en: "My favourite dish is...", ru: "Моё любимое блюдо — ..." },
+      { en: "I enjoy cooking / baking", ru: "Мне нравится готовить / печь" },
+      { en: "Our traditional dish is...", ru: "Наше традиционное блюдо — ..." },
+      { en: "I usually have ... for breakfast/lunch/dinner", ru: "Обычно на завтрак/обед/ужин у меня ..." },
+      { en: "I'm trying to eat less junk food", ru: "Я стараюсь есть меньше фастфуда" },
+      { en: "I learned this recipe from my grandmother", ru: "Я узнал(а) этот рецепт от бабушки" },
+      { en: "I'd like to try ... cuisine", ru: "Я бы хотел(а) попробовать ... кухню" },
+    ],
+    sample_q: "Sophie writes: 'What's your favourite food? Can you cook? Do you prefer home-cooked meals or eating out?'",
+    sample_q_ru: "Софи пишет: «Какая твоя любимая еда? Ты умеешь готовить? Ты предпочитаешь домашнюю еду или еду в кафе?»",
+  },
+  tech: {
+    name: "Технологии и интернет", icon: "📱",
+    phrases: [
+      { en: "I use the internet for...", ru: "Я использую интернет для ..." },
+      { en: "I spend about ... hours a day online", ru: "Я провожу в интернете около ... часов в день" },
+      { en: "I think technology makes life easier", ru: "Я думаю, технологии облегчают жизнь" },
+      { en: "My favourite gadget is...", ru: "Мой любимый гаджет — ..." },
+      { en: "I use social media to keep in touch with friends", ru: "Я использую соцсети, чтобы поддерживать связь с друзьями" },
+      { en: "I think it's important to limit screen time", ru: "Я думаю, важно ограничивать время у экрана" },
+      { en: "I couldn't imagine my life without...", ru: "Не могу представить свою жизнь без ..." },
+    ],
+    sample_q: "Mike writes: 'How often do you use the internet? What do you usually do online? Do you think teenagers spend too much time on their phones?'",
+    sample_q_ru: "Майк пишет: «Как часто ты пользуешься интернетом? Чем обычно занимаешься онлайн? Ты думаешь, подростки слишком много сидят в телефонах?»",
+  },
+  nature: {
+    name: "Природа и экология", icon: "🌿",
+    phrases: [
+      { en: "I think we should protect the environment", ru: "Я думаю, мы должны защищать окружающую среду" },
+      { en: "In my area, the biggest problem is...", ru: "В моём районе самая большая проблема — ..." },
+      { en: "I try to recycle / save water / save energy", ru: "Я стараюсь перерабатывать отходы / экономить воду / энергию" },
+      { en: "I love spending time outdoors / in nature", ru: "Я люблю проводить время на свежем воздухе / на природе" },
+      { en: "Global warming is a serious issue", ru: "Глобальное потепление — серьёзная проблема" },
+      { en: "We can all make a difference by...", ru: "Мы все можем помочь, если ..." },
+    ],
+    sample_q: "Lily writes: 'Are there any environmental problems in your area? What do you do to help the environment? Do you enjoy spending time in nature?'",
+    sample_q_ru: "Лили пишет: «Есть ли экологические проблемы в твоём районе? Что ты делаешь для защиты природы? Тебе нравится проводить время на природе?»",
+  },
+  books: {
+    name: "Книги и кино", icon: "📚",
+    phrases: [
+      { en: "I'm a big fan of ... (genre)", ru: "Я большой поклонник ... (жанра)" },
+      { en: "My favourite book / film is...", ru: "Моя любимая книга / фильм — ..." },
+      { en: "I prefer reading / watching films because...", ru: "Я предпочитаю читать / смотреть фильмы, потому что ..." },
+      { en: "I've recently read / watched...", ru: "Я недавно прочитал(а) / посмотрел(а) ..." },
+      { en: "The main character is ... and I like him/her because...", ru: "Главный герой — ..., и он/она мне нравится, потому что ..." },
+      { en: "I'd recommend this book / film to everyone", ru: "Я бы порекомендовал(а) эту книгу / фильм всем" },
+      { en: "I usually read before bed / watch films at weekends", ru: "Обычно я читаю перед сном / смотрю фильмы по выходным" },
+    ],
+    sample_q: "Chris writes: 'What kind of books do you like reading? Have you seen any good films recently? Do you prefer books or films?'",
+    sample_q_ru: "Крис пишет: «Какие книги тебе нравятся? Смотрел(а) ли ты недавно хорошие фильмы? Ты предпочитаешь книги или фильмы?»",
+  },
+  future: {
+    name: "Планы на будущее", icon: "🎓",
+    phrases: [
+      { en: "When I leave school, I'd like to...", ru: "Когда я окончу школу, я хотел(а) бы ..." },
+      { en: "My dream is to become a...", ru: "Моя мечта — стать ..." },
+      { en: "I'm planning to go to university / college", ru: "Я планирую поступить в университет / колледж" },
+      { en: "I think ... is a great career because...", ru: "Я думаю, ... — отличная карьера, потому что ..." },
+      { en: "I haven't decided yet, but I'm interested in...", ru: "Я ещё не решил(а), но мне интересна ..." },
+      { en: "I want to study ... in the future", ru: "Я хочу изучать ... в будущем" },
+      { en: "I hope to travel the world / start my own business", ru: "Я надеюсь объездить мир / начать своё дело" },
+    ],
+    sample_q: "Dave writes: 'What are your plans after school? What job would you like to have? Is there anything special you'd like to achieve in the future?'",
+    sample_q_ru: "Дэйв пишет: «Какие у тебя планы после школы? Кем бы ты хотел(а) работать? Есть что-то особенное, чего бы ты хотел(а) достичь в будущем?»",
+  },
+  city: {
+    name: "Город и деревня", icon: "🏙️",
+    phrases: [
+      { en: "I live in a big city / a small town / a village", ru: "Я живу в большом городе / маленьком городке / деревне" },
+      { en: "The best thing about my town is...", ru: "Лучшее в моём городе — это ..." },
+      { en: "I wish there were more ... in my area", ru: "Хотелось бы, чтобы в моём районе было больше ..." },
+      { en: "I prefer living in the city / countryside because...", ru: "Я предпочитаю жить в городе / за городом, потому что ..." },
+      { en: "There are lots of things to do here, such as...", ru: "Здесь есть чем заняться, например ..." },
+      { en: "My favourite place in my city is...", ru: "Моё любимое место в моём городе — ..." },
+    ],
+    sample_q: "Kate writes: 'Where do you live? What do you like about your town or city? Would you like to live somewhere else?'",
+    sample_q_ru: "Кейт пишет: «Где ты живёшь? Что тебе нравится в твоём городе? Хотел(а) бы ты жить в другом месте?»",
+  },
+  shopping: {
+    name: "Покупки и мода", icon: "🛍️",
+    phrases: [
+      { en: "I usually go shopping at weekends / with my friends", ru: "Обычно я хожу за покупками по выходным / с друзьями" },
+      { en: "I prefer shopping online / in shops because...", ru: "Я предпочитаю покупки онлайн / в магазинах, потому что ..." },
+      { en: "I like wearing casual / comfortable clothes", ru: "Мне нравится носить повседневную / удобную одежду" },
+      { en: "Fashion is / isn't important to me because...", ru: "Мода для меня важна / не важна, потому что ..." },
+      { en: "I usually buy clothes in...", ru: "Обычно я покупаю одежду в ..." },
+      { en: "I think it's better to save money for...", ru: "Я думаю, лучше копить деньги на ..." },
+    ],
+    sample_q: "Lucy writes: 'Do you enjoy shopping? Do you prefer shopping online or in real shops? Is fashion important to you?'",
+    sample_q_ru: "Люси пишет: «Тебе нравится ходить за покупками? Ты предпочитаешь покупки онлайн или в обычных магазинах? Важна ли для тебя мода?»",
+  },
+  holidays: {
+    name: "Праздники и традиции", icon: "🎄",
+    phrases: [
+      { en: "My favourite holiday is ... because...", ru: "Мой любимый праздник — ..., потому что ..." },
+      { en: "We usually celebrate ... by...", ru: "Обычно мы отмечаем ..., ... (как)" },
+      { en: "The whole family gets together", ru: "Вся семья собирается вместе" },
+      { en: "We have traditional food such as...", ru: "У нас есть традиционная еда, например ..." },
+      { en: "My favourite tradition is...", ru: "Моя любимая традиция — ..." },
+      { en: "In Russia, we celebrate ... on...", ru: "В России мы отмечаем ... (дата)" },
+    ],
+    sample_q: "Sam writes: 'What's your favourite holiday? How do you usually celebrate it? Are there any special traditions in your family?'",
+    sample_q_ru: "Сэм пишет: «Какой твой любимый праздник? Как вы обычно его отмечаете? Есть ли у вашей семьи особые традиции?»",
+  },
+  pets: {
+    name: "Домашние животные", icon: "🐾",
+    phrases: [
+      { en: "I have a ... called...", ru: "У меня есть ..., его/её зовут ..." },
+      { en: "I'd love to have a ... as a pet", ru: "Я бы хотел(а) завести ... как питомца" },
+      { en: "I take care of my pet by...", ru: "Я ухаживаю за своим питомцем, ..." },
+      { en: "Pets teach us responsibility", ru: "Домашние животные учат нас ответственности" },
+      { en: "I think every child should have a pet", ru: "Я думаю, у каждого ребёнка должен быть питомец" },
+      { en: "My pet is very friendly / playful / loyal", ru: "Мой питомец очень дружелюбный / игривый / преданный" },
+    ],
+    sample_q: "Olivia writes: 'Do you have any pets? What pet would you like to have? Do you think it's good for children to have pets?'",
+    sample_q_ru: "Оливия пишет: «У тебя есть домашние животные? Какого питомца ты хотел(а) бы завести? Полезно ли детям иметь питомцев?»",
+  },
+};
+
+// ═══════════════════════════════════════════════════════════════
+// PRACTICE PROMPTS
+// ═══════════════════════════════════════════════════════════════
+const PRACTICE_PROMPTS = [
+  { friend: "Tom", text: "...I've just started learning to play the guitar. It's really fun! What hobbies do you have? How much time a week do you spend on your hobby? Would you like to take up a new hobby, and why?...", topic: "hobbies" },
+  { friend: "Alice", text: "...We've just had our school exams and I'm so tired! What is your favourite subject at school and why? How many lessons do you usually have a day? What do you like most about your school?...", topic: "school" },
+  { friend: "Ben", text: "...Last weekend my whole family went to the countryside. It was lovely! Do you have a big family? What do you usually do together at weekends? Do you often see your grandparents?...", topic: "family" },
+  { friend: "Emma", text: "...I went to Spain for my summer holiday and it was amazing! Where did you spend your last summer holiday? What did you do there? Where would you like to travel in the future and why?...", topic: "travel" },
+  { friend: "Jack", text: "...I've just joined the school football team! Do you do any sports? How often do you exercise? What do you think is the best way to stay healthy?...", topic: "sport" },
+  { friend: "Sophie", text: "...I tried cooking a new recipe yesterday and it turned out great! What's your favourite food? Can you cook anything? Do you prefer home-cooked food or eating out?...", topic: "food" },
+  { friend: "Mike", text: "...I got a new smartphone for my birthday! How often do you use the internet? What do you usually do online? Do you think teenagers spend too much time on their gadgets?...", topic: "tech" },
+  { friend: "Lily", text: "...We planted some trees at school last week as part of an eco-project. Are there any environmental problems where you live? What do you do to help the environment? Do you enjoy spending time in nature?...", topic: "nature" },
+  { friend: "Chris", text: "...I've just finished reading an amazing book! What kind of books do you enjoy reading? Have you seen any good films recently? Do you prefer books or films, and why?...", topic: "books" },
+  { friend: "Dave", text: "...I'm already thinking about what I'll do after school. What are your plans for the future? What job would you like to have and why? Is there anything special you'd like to achieve?...", topic: "future" },
+  { friend: "Kate", text: "...We might move to a bigger city next year. Where do you live? What do you like about your town or city? Would you prefer to live in the city or the countryside, and why?...", topic: "city" },
+  { friend: "Sam", text: "...We celebrated my grandmother's birthday last weekend. What's your favourite holiday? How do you usually celebrate it? Are there any special traditions in your family?...", topic: "holidays" },
+  { friend: "Olivia", text: "...I've just got a kitten! She's adorable! Do you have any pets? What pet would you like to have and why? Do you think it's important for children to have pets?...", topic: "pets" },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let currentMode = "structure";
+let currentSidebarTopic = "hobbies";
+let practicePromptIdx = 0;
+let practiceText = "";
+let expandedSections = {};
+
+function resetExpanded() { expandedSections = {}; }
+
+// ═══════════════════════════════════════════════════════════════
+// WORD COUNT LOGIC
+// ═══════════════════════════════════════════════════════════════
+function countWords(text) {
+  return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+}
+function getWordStatus(count) {
+  if (count === 0) return { label: "Пусто", color: "var(--muted)", emoji: "⬜", pct: 0 };
+  if (count < 80) return { label: "Мало (менее 80)", color: "var(--red)", emoji: "🔴", pct: (count/120)*100 };
+  if (count < 100) return { label: "Недостаточно (80–99)", color: "var(--orange)", emoji: "🟠", pct: (count/120)*100 };
+  if (count <= 120) return { label: "Оптимально! (100–120)", color: "var(--green)", emoji: "🟢", pct: (count/120)*100 };
+  if (count <= 132) return { label: "Допустимо (121–132)", color: "var(--orange)", emoji: "🟡", pct: 100 };
+  return { label: "Слишком много! (>132)", color: "var(--red)", emoji: "🔴", pct: 100 };
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════════════════════════════
+
+function renderModeTabs() {
+  const el = document.getElementById("modeTabs");
+  el.innerHTML = MODES.map(m =>
+    `<button class="mode-tab ${currentMode === m.id ? 'active' : ''}" data-mode="${m.id}">${m.icon} ${m.name}</button>`
+  ).join("");
+  el.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => {
+    currentMode = btn.dataset.mode;
+    resetExpanded();
+    render();
+  }));
+}
+
+function renderSidebar() {
+  const el = document.getElementById("sidebar");
+  const showTopics = (currentMode === "topics" || currentMode === "practice");
+  if (!showTopics) {
+    el.innerHTML = `
+      <div class="info-box" style="margin-top:0">
+        <div class="title">Формат задания</div>
+        <div class="body">
+          📝 Личное письмо другу<br>
+          📏 100–120 слов (допуск ±10%)<br>
+          ⏱ ~30 минут на экзамене<br>
+          📊 Макс. 10 баллов<br><br>
+          <strong>Критерии оценки:</strong><br>
+          • Решение коммуникативной задачи (РКЗ)<br>
+          • Организация текста<br>
+          • Лексико-грамматическое оформление<br>
+          • Орфография и пунктуация
+        </div>
+      </div>
+      <div class="info-box">
+        <div class="title">Запомни!</div>
+        <div class="body">
+          ✅ Ответь на ВСЕ 3 вопроса<br>
+          ✅ Адрес + дата<br>
+          ✅ Приветствие + благодарность<br>
+          ✅ Завершение + подпись<br>
+          ❌ НЕ пиши фамилию<br>
+          ❌ НЕ забывай о лимите слов
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  el.innerHTML = `
+    <p class="sidebar-label">${currentMode === "practice" ? "Выбери задание" : "Темы"}</p>
+    ${currentMode === "practice"
+      ? PRACTICE_PROMPTS.map((p, i) => `
+        <button class="topic-btn ${practicePromptIdx === i ? 'active' : ''}" data-idx="${i}">
+          <span class="icon">${TOPIC_DATA[p.topic].icon}</span>
+          <span class="label">Письмо от ${p.friend}</span>
+        </button>
+      `).join("")
+      : SIDEBAR_TOPICS.map(t => `
+        <button class="topic-btn ${currentSidebarTopic === t.id ? 'active' : ''}" data-topic="${t.id}">
+          <span class="icon">${t.icon}</span>
+          <span class="label">${t.name}</span>
+        </button>
+      `).join("")
+    }
+  `;
+
+  if (currentMode === "practice") {
+    el.querySelectorAll(".topic-btn").forEach(btn => btn.addEventListener("click", () => {
+      practicePromptIdx = parseInt(btn.dataset.idx);
+      practiceText = "";
+      render();
+      document.querySelector('.sidebar').classList.remove('open');
+    }));
+  } else {
+    el.querySelectorAll(".topic-btn").forEach(btn => btn.addEventListener("click", () => {
+      currentSidebarTopic = btn.dataset.topic;
+      render();
+      document.querySelector('.sidebar').classList.remove('open');
+    }));
+  }
+}
+
+function renderHeader() {
+  const descs = {
+    structure: "Пошаговая структура личного письма с примерами на каждый элемент.",
+    templates: "Готовые фразы-шаблоны для каждой части письма с переводом.",
+    topics: "Ключевые слова и фразы по самым частым темам экзамена.",
+    practice: "Напиши письмо и отслеживай количество слов в реальном времени.",
+  };
+  const icons = { structure: "📐", templates: "📝", topics: "💬", practice: "✍️" };
+  const titles = { structure: "Структура письма", templates: "Шаблоны фраз", topics: "Темы и ключевые фразы", practice: "Тренажёр письма" };
+
+  document.getElementById("contentHeader").innerHTML = `
+    <h2>${icons[currentMode]} ${titles[currentMode]}</h2>
+    <p>${descs[currentMode]}</p>
+  `;
+}
+
+function renderContent() {
+  const el = document.getElementById("content");
+  switch (currentMode) {
+    case "structure": return renderStructure(el);
+    case "templates": return renderTemplates(el);
+    case "topics": return renderTopics(el);
+    case "practice": return renderPractice(el);
+  }
+}
+
+function renderStructure(el) {
+  el.innerHTML = STRUCTURE.map(step => `
+    <div class="structure-card">
+      <span class="step-num">${step.num}</span>
+      <span class="step-title">${step.title}</span>
+      <div class="step-body">${step.body}</div>
+      ${step.examples.map(ex => `
+        <div class="step-example">
+          <div class="en">${ex.en.replace(/\n/g, '<br>')}</div>
+          <div class="ru">${ex.ru.replace(/\n/g, '<br>')}</div>
+        </div>
+      `).join("")}
+    </div>
+  `).join("");
+}
+
+function renderTemplates(el) {
+  const sections = Object.entries(TEMPLATES);
+  el.innerHTML = sections.map(([key, sec], idx) => {
+    const isOpen = expandedSections[key] !== false;
+    return `
+      <div class="acc-section">
+        <button class="acc-header" data-key="${key}">
+          <span class="title">${sec.title}</span>
+          <span class="acc-toggle" style="transform:rotate(${isOpen ? 45 : 0}deg)">+</span>
+        </button>
+        ${isOpen ? `<div class="acc-body">
+          ${sec.items.map(item => `
+            <div class="tpl-card">
+              <div class="tpl-en">${item.en}</div>
+              <div class="tpl-ru">${item.ru}</div>
+            </div>
+          `).join("")}
+        </div>` : ""}
+      </div>
+    `;
+  }).join("");
+  // default open
+  sections.forEach(([key]) => { if (expandedSections[key] === undefined) expandedSections[key] = true; });
+  el.querySelectorAll(".acc-header").forEach(btn => btn.addEventListener("click", () => {
+    const key = btn.dataset.key;
+    expandedSections[key] = !expandedSections[key];
+    renderContent();
+  }));
+}
+
+function renderTopics(el) {
+  const data = TOPIC_DATA[currentSidebarTopic];
+  if (!data) return;
+  el.innerHTML = `
+    <div class="kw-section">
+      <div class="kw-title">${data.icon} ${data.name}</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:16px">
+        <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Пример вопросов из задания</div>
+        <div style="font-size:14px;line-height:1.7;font-style:italic">${data.sample_q}</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--muted);margin-top:6px">${data.sample_q_ru}</div>
+      </div>
+
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px">Полезные фразы:</div>
+      ${data.phrases.map(p => `
+        <div class="tpl-card">
+          <div class="tpl-en">${p.en}</div>
+          <div class="tpl-ru">${p.ru}</div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderPractice(el) {
+  const prompt = PRACTICE_PROMPTS[practicePromptIdx];
+  const topicData = TOPIC_DATA[prompt.topic];
+  const wc = countWords(practiceText);
+  const status = getWordStatus(wc);
+
+  el.innerHTML = `
+    <div class="practice-container">
+      <div class="prompt-card">
+        <div class="label">Задание — письмо от ${prompt.friend}</div>
+        <div class="text">${prompt.text}</div>
+        <div class="prompt-actions">
+          <button class="prompt-btn" id="showHints">${topicData.icon} Подсказки по теме</button>
+          <button class="prompt-btn" id="insertTemplate" title="Вставить шаблон начала">📝 Вставить шаблон</button>
+          <button class="prompt-btn" id="clearBtn">🗑 Очистить</button>
+        </div>
+      </div>
+
+      <div id="hintsArea" style="display:none"></div>
+
+      <div class="editor-area">
+        <textarea id="letterArea" placeholder="Начни писать письмо здесь...&#10;&#10;Moscow, Russia&#10;15 March 2025&#10;&#10;Dear ${prompt.friend},&#10;&#10;Thanks for your letter...">${practiceText}</textarea>
+        <div class="word-bar">
+          <div>
+            <div class="word-count-num" style="color:${status.color}">${wc}</div>
+            <div class="word-label">слов</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+            <div class="word-indicator" style="background:${status.color}15;color:${status.color}">
+              ${status.emoji} ${status.label}
+            </div>
+            <div class="word-meter">
+              <div class="word-meter-fill" style="width:${Math.min(status.pct, 100)}%;background:${status.color}"></div>
+            </div>
+            <div style="font-size:11px;color:var(--muted)">Цель: 100–120 слов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const textarea = document.getElementById("letterArea");
+  textarea.addEventListener("input", () => {
+    practiceText = textarea.value;
+    // Update word bar without full re-render
+    const wc2 = countWords(practiceText);
+    const st2 = getWordStatus(wc2);
+    document.querySelector(".word-count-num").textContent = wc2;
+    document.querySelector(".word-count-num").style.color = st2.color;
+    document.querySelector(".word-indicator").innerHTML = `${st2.emoji} ${st2.label}`;
+    document.querySelector(".word-indicator").style.background = `${st2.color}15`;
+    document.querySelector(".word-indicator").style.color = st2.color;
+    document.querySelector(".word-meter-fill").style.width = `${Math.min(st2.pct, 100)}%`;
+    document.querySelector(".word-meter-fill").style.background = st2.color;
+  });
+
+  document.getElementById("showHints").addEventListener("click", () => {
+    const area = document.getElementById("hintsArea");
+    if (area.style.display === "none") {
+      area.style.display = "block";
+      area.innerHTML = `
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:4px">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:10px">Полезные фразы для этой темы (${topicData.name})</div>
+          ${topicData.phrases.map(p => `
+            <div style="margin-bottom:6px">
+              <span style="font-size:13px;font-weight:600">${p.en}</span>
+              <span style="font-size:12px;color:var(--muted);margin-left:6px">— ${p.ru}</span>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    } else {
+      area.style.display = "none";
+    }
+  });
+
+  document.getElementById("insertTemplate").addEventListener("click", () => {
+    const template = `Moscow, Russia\n${new Date().toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'})}\n\nDear ${prompt.friend},\n\nThanks for your letter. It was great to hear from you.\n\n\n\nWell, I have to go now because I need to help my mum. Write back soon!\n\nBest wishes,\n`;
+    textarea.value = template;
+    practiceText = template;
+    textarea.focus();
+    textarea.setSelectionRange(template.indexOf("\n\n\n") + 2, template.indexOf("\n\n\n") + 2);
+    textarea.dispatchEvent(new Event('input'));
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", () => {
+    if (practiceText.length > 0 && !confirm("Очистить текст?")) return;
+    textarea.value = "";
+    practiceText = "";
+    textarea.dispatchEvent(new Event('input'));
+  });
+}
+
+function render() {
+  renderModeTabs();
+  renderSidebar();
+  renderHeader();
+  renderContent();
+}
+
+render();
+</script>
+</body>
+</html>
